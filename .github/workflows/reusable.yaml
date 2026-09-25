@@ -7,6 +7,12 @@ on:
                 type: string
                 default: "Mohamed"
 jobs:
+    checkout:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+            - run: ls -l
     say-hello:
         runs-on: ubuntu-latest
         steps:
@@ -14,3 +20,5 @@ jobs:
               run: echo "${{ toJson(github) }}"
             - name: Say Hello
               run: echo "Hello ${{ inputs.name }}!"
+            - name: Display token access
+              run: echo "Token: ${{ secrets.access-token }}"
