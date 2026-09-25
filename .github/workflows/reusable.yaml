@@ -10,5 +10,7 @@ jobs:
     say-hello:
         runs-on: ubuntu-latest
         steps:
+            - name: Display github context
+              run: echo "${{ toJson(github) }}"
             - name: Say Hello
               run: echo "Hello ${{ inputs.name }}!"
